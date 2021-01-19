@@ -1,3 +1,3 @@
 module.exports = {
-  // publicPath: '/pre-health-checks/'
+  publicPath: '/forms-demo/'
 }
