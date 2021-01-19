@@ -66,6 +66,11 @@ li {
 a {
   color: #42b983;
 }
+
+.title {
+  font-size: 1.1rem;
+}
+
 .question-section {
   .title {
     text-align: left;
@@ -78,7 +83,7 @@ a {
     font-weight: 300;
     font-size: 1rem;
     text-align: left;
-    color: #565656;
+    color: #333333;
     margin-top: 5px;
     white-space: pre-line;
   }

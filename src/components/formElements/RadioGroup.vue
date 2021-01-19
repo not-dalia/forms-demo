@@ -9,18 +9,21 @@
         v-bind:key="`${eldata.name}-option-${oi+1}`"
         v-on:click="selectOption(oi+1)"
       >
-        <input
+        <div class="option-label">
+          <input
           type="radio"
           :name="`${eldata.name}-option`"
           :id="`${eldata.name}-option-${oi+1}`"
           :value="oi+1"
           v-model="selectedOption"
           :checked="selectedOption === oi+1"
-        />
-        <div class="checkmark">
-          <div class="checked"></div>
-        </div>
-        <label :for="`${eldata.name}-option-${oi+1}`">{{option.name}}</label>
+          />
+          <div class="checkmark">
+            <div class="checked"></div>
+          </div>
+          <label :for="`${eldata.name}-option-${oi+1}`">{{option.name}}</label>
+        </div> 
+        <div class="label-desc" v-if="option.description"> {{option.description}} </div>
       </div>
     </div>
   </div>
@@ -106,6 +109,10 @@ a {
   color: #42b983;
 }
 
+.title {
+  font-size: 1.1rem;
+}
+
 .radio-group {
   text-align: left;
   padding: 5px 0;
@@ -133,11 +140,13 @@ a {
     .option-col {
       margin: 5px 15px 5px 0;
       background: #f4f4f4;
-      padding: 0 10px;
       line-height: 2.5rem;
       cursor: pointer;
-      position: relative;
       padding: 0.55rem 15px;
+
+      .option-label {
+        position: relative;
+      }
 
       &:hover {
         background: #e4e4e4;
@@ -159,7 +168,7 @@ a {
         position: absolute;
         top: 0;
         bottom: 0;
-        left: 0.75rem;
+        left: 0.15rem;
         margin: auto;
         cursor: pointer;
         
@@ -173,10 +182,10 @@ a {
       input[type='radio']:checked ~ .checkmark {
         .checked {
           border-radius: 100%;
-          background: #F48F5B;
+          background: #009688;
           border: none;
-          width: 0.75rem;
-          height: 0.75rem;
+          width: 0.76rem;
+          height: 0.76rem;
           position: absolute;
           top: 0.125rem;
           left: 0.125rem;  
@@ -184,14 +193,25 @@ a {
       }
 
       label {
-        font-weight: 300;
+        font-weight: 400;
         font-size: 1rem;
         text-align: left;
-        color: #565656;
-        margin-left: 1.5rem;
+        color: #333333;
+        margin-left: 1.8rem;
         cursor: pointer;
         display: inline-block;
-        line-height: 1.6;
+        line-height: 1.6rem;
+      }
+
+      .label-desc {
+        font-weight: 300;
+        font-size: 0.9rem;
+        text-align: left;
+        color: #333333;
+        margin-left: 1.8rem;
+        cursor: pointer;
+        display: inline-block;
+        line-height: 1.1rem;
       }
     }
   }
@@ -200,7 +220,7 @@ a {
     font-weight: 300;
     font-size: 1rem;
     text-align: left;
-    color: #565656;
+    color: #333333;
     margin-top: 5px;
   }
 }

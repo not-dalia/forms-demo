@@ -1,14 +1,14 @@
 let formData = [ //pages
   [ //sections
     {
-      title: "Health Check for Autistic Adults – Pre-appointment Form",
-      description: "This form contains a number of questions that your GP would like you to complete before your health check. These questions are about you, your communication or sensory needs, and your general health. You will also be asked to complete some questions about specific symptoms that you may, or may not, have experienced. This is important because it will help the GP work with you to ensure you are treated most effectively. Finally, there is a section about your diet and lifestyle. \n\n Thank you for taking time to complete these questions. If you have any questions about the pre-appointment form, please contact _____."
+      title: "Newcastle ENDOPREMTM: Patient Reported Experience Measure for Gastrointestinal Endoscopy",
+      description: "Thank you for agreeing to take part in this survey - we really appreciate you taking the time to complete this questionnaire about your experience of having an endoscopy (camera) test or CT colonoscopy (scan).\n\nThe survey will take about 10 - 15 minutes to complete. All of the questions are important so please try to answer them all. There are no right or wrong answers - we are just interested in hearing about your experience so we can make improvements to the way we deliver the service. \n\nIf you need help filling in the survey you can ask someone to help you."
     }
   ],
   [ //sections
     {
       title: "Your Details",
-      description: "Please fill in the following fields about yourself",
+      description: "Please answer all of the questions in this section by filling in the boxes or putting a ‘✔‘ next to the answer that applies to you.",
       questions: [{ //question      
         question: "Name",
         name: "name",

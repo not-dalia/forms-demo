@@ -26,18 +26,18 @@ export default {
 }
 
 :root {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 body {
-  background-color #51B1A7
-  padding 30px 50px
+  // background-color #51B1A7
+  padding 30px 0
 }
 
 @media only screen and (max-width: 600px)  {
   body {
-    background-color #51B1A7
-    padding 30px 0
+    // background-color #51B1A7
+    // padding 30px 0
   }
 }
 </style>

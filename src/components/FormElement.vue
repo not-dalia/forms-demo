@@ -1,26 +1,30 @@
 <template>
-  <div class="form-element" :class="{ 'sub-element' : subelement }" :value="value" ref="formElement" >
+  <div class="form-element" :class="{ 'sub-element' : subelement, 'sub-section': formel.subsection }" :value="value" ref="formElement" >
     <Separator v-if="formel.type==='separator'" />
     <TextField v-if="formel.type==='text'" :eldata="formel" v-model="elementValue"/>
+    <NumberField v-if="formel.type==='number'" :eldata="formel" v-model="elementValue"/>
     <TextArea v-if="formel.type==='long-text'" :eldata="formel" v-model="elementValue"/>
     <DateField v-if="formel.type==='date'" :eldata="formel" v-model="elementValue"/>
     <RadioGroup v-if="formel.type==='radio'" :eldata="formel" v-model="elementValue"/>
+    <LikertTable v-if="formel.type==='likert-table'" :eldata="formel" v-model="elementValue"/>
     <CheckboxGroup v-if="formel.type==='checkbox'" :eldata="formel" v-model="elementValue"/>
     <Section v-if="formel.type==='section'" :eldata="formel" v-model="elementValue"/>
   </div>
 </template>
 
 <script>
-import { Separator, TextField, TextArea, DateField, RadioGroup, CheckboxGroup, Section } from "@/components/formElements/index.js";
+import { Separator, TextField, NumberField, TextArea, DateField, RadioGroup, LikertTable, CheckboxGroup, Section } from "@/components/formElements/index.js";
 export default {
   name: "FormElement",
   props: ["formel", "subelement", "value"],
   components: {
     Separator,
     TextField,
+    NumberField,
     TextArea,
     DateField,
     RadioGroup,
+    LikertTable,
     CheckboxGroup,
     Section
   },
@@ -30,7 +34,10 @@ export default {
     };
   },
   mounted() {
-
+          if (document.querySelector("input"))
+        document.querySelector("input").focus();
+      else if (document.querySelector("textarea"))
+        document.querySelector("textarea").focus();
   },
   methods: {},
   watch: {
@@ -74,7 +81,11 @@ a {
 }
 
 .form-element {
-  padding: 5px 20px 10px 20px;
+  padding: 5px 20px 1.4rem 20px;
+}
+
+.form-element.sub-section {
+  margin-top: -1.4rem;
 }
 
 .form-element.sub-element {

@@ -110,6 +110,10 @@ a {
   color: #42b983;
 }
 
+.title {
+  font-size: 1.1rem;
+}
+
 .checkbox-group {
   text-align: left;
   padding: 5px 0;
@@ -174,7 +178,7 @@ a {
 
       input[type='checkbox']:checked ~ .checkmark {
         .checked {
-          background: #F48F5B;
+          background: #009688;
           border: none;
           width: 0.75rem;
           height: 0.75rem;
@@ -188,7 +192,7 @@ a {
         font-weight: 300;
         font-size: 1rem;
         text-align: left;
-        color: #565656;
+        color: #333333;
         margin-left: 2rem;
         cursor: pointer;
         display: inline-block;
@@ -201,7 +205,7 @@ a {
     font-weight: 300;
     font-size: 1rem;
     text-align: left;
-    color: #565656;
+    color: #333333;
     margin-top: 5px;
   }
 }

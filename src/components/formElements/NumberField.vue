@@ -3,8 +3,7 @@
     <label :for="eldata.name" class="title">{{ eldata.question }}</label>
     <div class="desc" v-if="eldata.description">{{ eldata.description }}</div>
     <div class="input-container">
-      <input type="text" :name="eldata.name" :id="eldata.name" v-bind:value="value" v-on:input="$emit('input', $event.target.value)"/>
-      <div class="mic"><span class="record-title">Record Audio</span><img src="@/assets/microphone.svg" style="height:1.3rem" alt="Record audio" title="Record audio"></div>
+      <input type="number" :name="eldata.name" :id="eldata.name" v-bind:value="value" v-on:input="$emit('input', $event.target.value)" min="0"/>
     </div>
   </div>
 </template>
@@ -17,6 +16,11 @@ export default {
     return {};
   },
   created() {
+  },
+  mounted() {
+    if (this.eldata.value !== '' && this.eldata.value !== null) {
+      this.$emit('input', this.eldata.value)
+    }
   },
   methods: {}
 };
@@ -57,11 +61,11 @@ a {
     font-weight: 300 !important;
   }
 
-  input[type='text'] {
+  input[type='number'] {
     display: block;
-    width: 100%;
+    width: 75px;
     margin-top: 10px;
-    padding: 10px 45px 10px 10px;
+    padding: 10px 10px 10px 10px;
     border-radius: 3px;
     box-sizing: border-box;
     background: #f8f8f8;
@@ -71,6 +75,7 @@ a {
 
   .input-container {
     position: relative;
+    width: fit-content;
   }
 
   .mic {

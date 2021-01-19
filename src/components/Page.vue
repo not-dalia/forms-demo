@@ -1,20 +1,26 @@
 <template>
   <div class="page" :value="value" ref="page">
-    <div v-for="(section, i) in page" v-bind:key="`section-${i}`" class="section">
-      <div class="title">{{section.title}}</div>
-      <div class="separator"></div>
-      <div class="description" v-if="section.description">{{section.description}}</div>
-      <FormElement v-for="(q, j) in section.questions" v-bind:key="`form-el-${i}-${j}`" :formel="q" v-model="value[q.name]"/>
+    <div class="section">
+      <div class="title">{{page[currentQuestion].title}}</div>
+      <!-- <div class="separator"></div> -->
+      <div class="description" v-if="page[currentQuestion].description">{{page[currentQuestion].description}}</div>
+      <FormElement :id="`form-el-${currentQuestion}-${j}`" v-for="(q, j) in page[currentQuestion].questions" v-bind:key="`form-el-${currentQuestion}-${j}`" :formel="q" v-model="value[q.name]"/>
     </div>
+
+    <!-- <div v-for="(section, i) in page" v-bind:key="`section-${i}`" class="section">
+      <div class="title">{{section.title}}</div>
+      <div class="description" v-if="section.description">{{section.description}}</div>
+      <FormElement :id="`form-el-${i}-${j}`" v-for="(q, j) in section.questions" v-bind:key="`form-el-${i}-${j}`" :formel="q" v-model="value[q.name]"/>
+    </div> -->
   </div>
 </template>
 
 <script>
-import formData from '@/data/formData.js'
+import formData from '@/data/formData-pre.js'
 import FormElement from '@/components/FormElement.vue'
 export default {
   name: 'Page',
-  props: ['page', 'value'], 
+  props: ['page', 'value', 'currentQuestion'], 
   components: {
     FormElement
   },
@@ -31,6 +37,9 @@ export default {
     if (this.$attrs.value != null) this.defaultValues = {...this.$attrs.value} 
   },
   watch: {
+    currentQuestion: function (val, oldVal) {
+      
+    },
     defaultValues: {
       handler: function (val, oldVal) {
         this.$emit('input', this.defaultValues)
@@ -39,7 +48,7 @@ export default {
     }, 
     value: {
       handler: function (val, oldVal) {
-        //console.log('result changed to: ' + val)
+        console.log('result changed to: ' + val)
       },
       deep: true
     }
@@ -68,19 +77,21 @@ a {
 }
 
 .section {
+  box-sizing: border-box;
   background white
-  padding 20px
-  max-width 800px
+  padding 20px 50px
+  max-width 1000px
   margin 25px auto
-  filter drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16))
+  // filter drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16))
   color: #555;
 }
 
 .title {
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   text-align: left;
-  color: #51b1a7;
+  color: #009688;
+  margin-bottom: 1rem;
 }
 
 .separator {
@@ -94,9 +105,10 @@ a {
   font-weight: 300;
   font-size: 1rem;
   text-align: left;
-  color: #565656;
+  color: #333;
   margin-bottom: 15px;
   white-space: pre-line;
+  line-height: 1.6rem;
 }
 
 @media only screen and (max-width: 600px)  {
@@ -105,7 +117,7 @@ a {
     padding 15px
     max-width 100%
     margin 25px auto
-    filter drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16))
+    // filter drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16))
     color: #555;
   }
 }

@@ -104,6 +104,10 @@ a {
   color: #42b983;
 }
 
+.title {
+  font-size: 1.1rem;
+}
+
 .date-field {
   text-align: left;
   padding: 5px 0;
@@ -138,7 +142,7 @@ a {
         font-weight: 300;
         font-size: 0.9rem;
         text-align: left;
-        color: #565656;
+        color: #333333;
         font-weight: 500;
         margin-top: 10px;
       }
@@ -149,7 +153,7 @@ a {
     font-weight: 300;
     font-size: 1rem;
     text-align: left;
-    color: #565656;
+    color: #333333;
     margin-top: 5px;
   }
 }
