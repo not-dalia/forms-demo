@@ -579,11 +579,11 @@ let formData = [ //pages
   }], [{
     title: "Allergies",
     questions: [{
-      name: "side-effect",
+      name: "allergy",
       type: "long-text",
       question: "Please list anything you have a diagnosed allergy to, including medications"
     }, {
-      name: "side-effect",
+      name: "intolerance",
       type: "long-text",
       question: "Please list anything you have a sensitivity or intolerance to"
     }]
